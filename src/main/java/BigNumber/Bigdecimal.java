@@ -1,8 +1,7 @@
 package BigNumber;
 
 import java.math.*;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by ramon on 01-02-16.
@@ -10,28 +9,29 @@ import java.util.Scanner;
 public class Bigdecimal {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        int arraySize = Integer.parseInt(userInput.nextLine());
-        String [] s = new String[arraySize];
-        for (int i = 0; i < arraySize; i++) {
-            s[i] = userInput.nextLine();
+        int test = userInput.nextInt();
+        userInput.nextLine();
+        List<BigDecimal> list = new ArrayList<BigDecimal>();
+        List<String> l1 = new ArrayList<String>();
+
+        for (int i = 0; i < test; i++) {
+            l1.add(userInput.nextLine());
+
         }
 
-
-        //Write your code here
-        //Sorting (Selection)
-        for (int i = 0; i < (s.length - 1); i++) {
-            for (int k = (i + 1); k < s.length; k++) {
-                if (new BigDecimal(s[i]).compareTo(new BigDecimal(s[k])) < 0) {
-                    String tempValue = s[i];
-                    s[i] = s[k];
-                    s[k] = tempValue;
+            Comparator<String> comparator = new Comparator<String>() {
+                @Override
+                public int compare(String b1, String b2) {
+                    return new BigDecimal(b2).compareTo(new BigDecimal(b1));
                 }
-            }
+            };
+
+        Collections.sort(l1,comparator);
+        for (int i = 0; i <l1.size() ; i++) {
+            System.out.println(l1.get(i));
         }
 
-        for (int i = 0; i < s.length; i++) {
-            System.out.println(s[i]);
         }
+
 
     }
-}
