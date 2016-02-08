@@ -8,18 +8,18 @@ import java.util.Stack;
  */
 public class JavaStack {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        while (scan.hasNext()) {
-            System.out.println(scan.next());
+        //Scanner scan = new Scanner(System.in);
+        //while (scan.hasNext()) {
+            //System.out.println(scan.next());
            /* if(isBalanced(scan.next())){
                 System.out.println(true);
             }else{
                 System.out.println(false);
             }*/
-        }
+        //}
         // closing the scanner stream
-        scan.close();
-
+        //scan.close();
+        System.out.println(getInverseString("}"));
     }
 
     private static void isBalanced(String next) {
@@ -38,6 +38,9 @@ public class JavaStack {
                break;
            case '(':
                inverse=')';
+               break;
+           default:
+               inverse=0;
                break;
        }
         return String.valueOf(inverse);
